@@ -1,0 +1,25 @@
+RSSM Related commands:
+
+& "C:\IsaacLab\_isaac_sim\kit\python\python.exe" -m pytest .\tests\test_rssm.py -v 
+
+& "C:\IsaacLab\_isaac_sim\kit\python\python.exe" .\scripts\train_rssm.py `   
+    --episodes .\data\cartpole_episodes.npz --epochs 10 --seq-len 20 --stride 5 --batch-size 64    
+
+& "C:\IsaacLab\_isaac_sim\kit\python\python.exe" .\scripts\evaluate_rssm.py `
+    --episodes .\data\cartpole_episodes.npz --checkpoint .\checkpoints\rssm.pt --context 5 --horizon 50 --max-windows 4096 --csv-out .\results\rssm_rollout_metrics.csv 
+
+
+TSSM Related commands
+
+& "C:\IsaacLab\_isaac_sim\kit\python\python.exe" -m pytest .\tests\test_tssm.py -v  
+
+& "C:\IsaacLab\_isaac_sim\kit\python\python.exe" .\scripts\train_tssm.py `
+    --episodes .\data\cartpole_episodes.npz --epochs 5 --seq-len 20 --stride 5 --batch-size 64
+
+& "C:\IsaacLab\_isaac_sim\kit\python\python.exe" .\scripts\evaluate_tssm.py `
+    --episodes .\data\cartpole_episodes.npz --checkpoint .\checkpoints\tssm.pt --context 5 --horizon 50 --max-windows 4096 --csv-out .\results\tssm_rollout_metrics.csv
+
+Ensemle Related commands
+
+& "C:\IsaacLab\_isaac_sim\kit\python\python.exe" -m pytest .\tests\test_ensemble.py -v
+
